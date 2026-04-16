@@ -1,0 +1,140 @@
+schema: '2.0'
+stages:
+  split_data:
+    cmd: python -B src/features/split_data.py --input-path 
+      data/raw/kaggle_events.csv --train-output-path 
+      data/processed/kaggle_train_events.csv --test-output-path 
+      data/processed/kaggle_test_events.csv --min-unique-items 2
+    deps:
+    - path: data/raw/kaggle_events.csv
+      hash: md5
+      md5: 08cea552c793bef73b75fddb6ecd425f
+      size: 30807341
+    - path: src/features/split_data.py
+      hash: md5
+      md5: 23819c96e35e1cc4fcb798b0a426f5bd
+      size: 2542
+    outs:
+    - path: data/processed/kaggle_test_events.csv
+      hash: md5
+      md5: 624a48a666a9d3d19c2235bf5e066468
+      size: 7337465
+    - path: data/processed/kaggle_train_events.csv
+      hash: md5
+      md5: d16f2a6bcf0d6563e896054481b0ee9d
+      size: 23543896
+  build_features:
+    cmd: python -B src/features/build_features.py --input-path 
+      data/processed/kaggle_train_events.csv --matrix-output-path 
+      data/processed/kaggle_interaction_matrix.csv --item-features-output-path 
+      data/processed/kaggle_item_features.csv
+    deps:
+    - path: data/processed/kaggle_train_events.csv
+      hash: md5
+      md5: d16f2a6bcf0d6563e896054481b0ee9d
+      size: 23543896
+    - path: src/features/build_features.py
+      hash: md5
+      md5: 0ae221c9633638bed568f295cdcebf52
+      size: 4756
+    outs:
+    - path: data/processed/kaggle_interaction_matrix.csv
+      hash: md5
+      md5: 14433361b7c69e97e4534ddf5114dbb8
+      size: 11742325
+    - path: data/processed/kaggle_item_features.csv
+      hash: md5
+      md5: a14f31f7cb6145678301cc932daf3d39
+      size: 2810336
+  train_model:
+    cmd: python -B src/model/train.py --model-type als --factors 32 --iterations
+      10 --regularization 0.05 --alpha 20 --matrix-path 
+      data/processed/kaggle_interaction_matrix.csv --feature-path 
+      data/processed/kaggle_item_features.csv --model-path 
+      models/als_model.joblib
+    deps:
+    - path: data/processed/kaggle_interaction_matrix.csv
+      hash: md5
+      md5: 14433361b7c69e97e4534ddf5114dbb8
+      size: 11742325
+    - path: data/processed/kaggle_item_features.csv
+      hash: md5
+      md5: a14f31f7cb6145678301cc932daf3d39
+      size: 2810336
+    - path: src/model/train.py
+      hash: md5
+      md5: 9e26ea7785be3841351913d47e4acfea
+      size: 7005
+    outs:
+    - path: models/als_model.joblib
+      hash: md5
+      md5: 0e39c7e813315c68ac019ea5360f2393
+      size: 43692597
+  evaluate_model:
+    cmd: python -B src/model/evaluate.py --model-path models/als_model.joblib 
+      --test-events-path data/processed/kaggle_test_events.csv --metrics-path 
+      data/processed/kaggle_evaluation_metrics.json --k 5 --max-users 5000 
+      --mode hybrid --candidate-multiplier 50
+    deps:
+    - path: data/processed/kaggle_test_events.csv
+      hash: md5
+      md5: 624a48a666a9d3d19c2235bf5e066468
+      size: 7337465
+    - path: models/als_model.joblib
+      hash: md5
+      md5: 0e39c7e813315c68ac019ea5360f2393
+      size: 43692597
+    - path: src/model/evaluate.py
+      hash: md5
+      md5: 839bd51a615935bb991689dab9c894f6
+      size: 6056
+    - path: src/model/predict.py
+      hash: md5
+      md5: be923dd95573d8588dd3104d878e8d1c
+      size: 5396
+    outs:
+    - path: data/processed/kaggle_evaluation_metrics.json
+      hash: md5
+      md5: 4ef7bf0d182726f3d2e2fcc1e60a441e
+      size: 178
+  compare_models:
+    cmd: python -B src/model/compare_models.py --models als,bpr,lmf --k 5 
+      --max-users 5000 --matrix-path 
+      data/processed/kaggle_interaction_matrix.csv --feature-path 
+      data/processed/kaggle_item_features.csv --test-events-path 
+      data/processed/kaggle_test_events.csv --output-path 
+      data/processed/kaggle_model_comparison.json
+    deps:
+    - path: data/processed/kaggle_interaction_matrix.csv
+      hash: md5
+      md5: 14433361b7c69e97e4534ddf5114dbb8
+      size: 11742325
+    - path: data/processed/kaggle_item_features.csv
+      hash: md5
+      md5: a14f31f7cb6145678301cc932daf3d39
+      size: 2810336
+    - path: data/processed/kaggle_test_events.csv
+      hash: md5
+      md5: 624a48a666a9d3d19c2235bf5e066468
+      size: 7337465
+    - path: src/model/compare_models.py
+      hash: md5
+      md5: a048fb79c1435ffb70517928dc19934b
+      size: 3128
+    - path: src/model/evaluate.py
+      hash: md5
+      md5: 839bd51a615935bb991689dab9c894f6
+      size: 6056
+    - path: src/model/predict.py
+      hash: md5
+      md5: be923dd95573d8588dd3104d878e8d1c
+      size: 5396
+    - path: src/model/train.py
+      hash: md5
+      md5: 9e26ea7785be3841351913d47e4acfea
+      size: 7005
+    outs:
+    - path: data/processed/kaggle_model_comparison.json
+      hash: md5
+      md5: c055761fee23122c453a18e13b171731
+      size: 678

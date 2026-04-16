@@ -1,0 +1,52 @@
+stages:
+  split_data:
+    cmd: python -B src/features/split_data.py --input-path data/raw/kaggle_events.csv --train-output-path data/processed/kaggle_train_events.csv --test-output-path data/processed/kaggle_test_events.csv --min-unique-items 2
+    deps:
+      - data/raw/kaggle_events.csv
+      - src/features/split_data.py
+    outs:
+      - data/processed/kaggle_train_events.csv
+      - data/processed/kaggle_test_events.csv
+
+  build_features:
+    cmd: python -B src/features/build_features.py --input-path data/processed/kaggle_train_events.csv --matrix-output-path data/processed/kaggle_interaction_matrix.csv --item-features-output-path data/processed/kaggle_item_features.csv
+    deps:
+      - data/processed/kaggle_train_events.csv
+      - src/features/build_features.py
+    outs:
+      - data/processed/kaggle_interaction_matrix.csv
+      - data/processed/kaggle_item_features.csv
+
+  train_model:
+    cmd: python -B src/model/train.py --model-type als --factors 32 --iterations 10 --regularization 0.05 --alpha 20 --matrix-path data/processed/kaggle_interaction_matrix.csv --feature-path data/processed/kaggle_item_features.csv --model-path models/als_model.joblib
+    deps:
+      - data/processed/kaggle_interaction_matrix.csv
+      - data/processed/kaggle_item_features.csv
+      - src/model/train.py
+    outs:
+      - models/als_model.joblib
+
+  evaluate_model:
+    cmd: python -B src/model/evaluate.py --model-path models/als_model.joblib --test-events-path data/processed/kaggle_test_events.csv --metrics-path data/processed/kaggle_evaluation_metrics.json --k 5 --max-users 5000 --mode hybrid --candidate-multiplier 50
+    deps:
+      - models/als_model.joblib
+      - data/processed/kaggle_test_events.csv
+      - src/model/evaluate.py
+      - src/model/predict.py
+    metrics:
+      - data/processed/kaggle_evaluation_metrics.json:
+          cache: false
+
+  compare_models:
+    cmd: python -B src/model/compare_models.py --models als,bpr,lmf --k 5 --max-users 5000 --matrix-path data/processed/kaggle_interaction_matrix.csv --feature-path data/processed/kaggle_item_features.csv --test-events-path data/processed/kaggle_test_events.csv --output-path data/processed/kaggle_model_comparison.json
+    deps:
+      - data/processed/kaggle_interaction_matrix.csv
+      - data/processed/kaggle_item_features.csv
+      - data/processed/kaggle_test_events.csv
+      - src/model/compare_models.py
+      - src/model/evaluate.py
+      - src/model/predict.py
+      - src/model/train.py
+    metrics:
+      - data/processed/kaggle_model_comparison.json:
+          cache: false

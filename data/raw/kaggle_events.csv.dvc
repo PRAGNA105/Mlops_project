@@ -1,0 +1,5 @@
+outs:
+- md5: 08cea552c793bef73b75fddb6ecd425f
+  size: 30807341
+  hash: md5
+  path: kaggle_events.csv

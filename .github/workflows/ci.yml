@@ -1,0 +1,148 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: "3.11"
+  IMAGE_NAME: ecommerce-recsys-api
+
+jobs:
+  python-checks:
+    name: Python checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Compile source files
+        run: |
+          python -B -m compileall src
+
+      - name: Run tests if tests folder exists
+        run: |
+          if [ -d tests ]; then
+            python -m pytest tests -v
+          else
+            echo "No tests/ directory found; skipping pytest."
+          fi
+
+  dvc-pipeline:
+    name: DVC pipeline
+    runs-on: ubuntu-latest
+    needs: python-checks
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install kaggle
+
+      - name: Restore Kaggle dataset from DVC remote if configured
+        id: dvc_pull
+        continue-on-error: true
+        run: |
+          dvc pull data/raw/kaggle_events.csv.dvc
+
+      - name: Download Kaggle dataset if DVC pull did not restore data
+        if: ${{ hashFiles('data/raw/kaggle_events.csv') == '' }}
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+        run: |
+          if [ -z "$KAGGLE_USERNAME" ] || [ -z "$KAGGLE_KEY" ]; then
+            echo "Kaggle secrets are not configured; skipping Kaggle download."
+            exit 0
+          fi
+          python -B src/ingestion/import_kaggle_dataset.py --output-csv data/raw/kaggle_events.csv --min-events-per-user 2
+
+      - name: Stop if dataset is unavailable
+        if: ${{ hashFiles('data/raw/kaggle_events.csv') == '' }}
+        run: |
+          echo "data/raw/kaggle_events.csv is missing."
+          echo "Fix by configuring a DVC remote and running dvc push, or by adding KAGGLE_USERNAME and KAGGLE_KEY repository secrets."
+          exit 1
+
+      - name: Reproduce training and evaluation pipeline
+        env:
+          DVC_SITE_CACHE_DIR: /tmp/dvc-site-cache-ecommerce-recsys
+          OPENBLAS_NUM_THREADS: "1"
+        run: |
+          dvc repro evaluate_model
+
+      - name: Show metrics
+        run: |
+          cat data/processed/kaggle_evaluation_metrics.json
+
+      - name: Upload metrics artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-metrics
+          path: data/processed/kaggle_evaluation_metrics.json
+
+  docker-build:
+    name: Docker build
+    runs-on: ubuntu-latest
+    needs: python-checks
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build API image
+        run: |
+          docker build -f docker/Dockerfile -t ${{ env.IMAGE_NAME }}:${{ github.sha }} .
+
+  publish-image:
+    name: Publish Docker image to GHCR
+    runs-on: ubuntu-latest
+    needs: [python-checks, docker-build]
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
+          IMAGE_ID=$(echo "$IMAGE_ID" | tr '[:upper:]' '[:lower:]')
+          docker build -f docker/Dockerfile -t "$IMAGE_ID:${{ github.sha }}" -t "$IMAGE_ID:latest" .
+          docker push "$IMAGE_ID:${{ github.sha }}"
+          docker push "$IMAGE_ID:latest"

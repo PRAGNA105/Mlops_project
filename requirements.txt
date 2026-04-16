@@ -1,0 +1,17 @@
+pandas
+numpy
+scipy
+scikit-learn
+implicit
+mlflow
+joblib
+fastapi
+uvicorn
+jupyter
+matplotlib
+seaborn
+dvc
+kafka-python
+prometheus-client
+evidently
+pytest
