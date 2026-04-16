@@ -2,14 +2,19 @@ import argparse
 from pathlib import Path
 
 import joblib
-import mlflow
 import numpy as np
 import pandas as pd
+import mlflow
 from implicit.als import AlternatingLeastSquares
 from implicit.bpr import BayesianPersonalizedRanking
 from implicit.lmf import LogisticMatrixFactorization
 from numpy.linalg import norm
 from scipy.sparse import csr_matrix
+
+try:
+    from src.model.mlflow_utils import configure_mlflow, log_common_tags, log_table_profile
+except ModuleNotFoundError:
+    from mlflow_utils import configure_mlflow, log_common_tags, log_table_profile
 
 
 RAW_SCORE_WEIGHTS = {
@@ -19,13 +24,6 @@ RAW_SCORE_WEIGHTS = {
     "trend": 0.15,
     "item_similarity": 0.25,
 }
-
-
-def configure_mlflow() -> None:
-    tracking_dir = Path("mlruns").resolve()
-    tracking_dir.mkdir(parents=True, exist_ok=True)
-    mlflow.set_tracking_uri(tracking_dir.as_uri())
-    mlflow.set_experiment("ecommerce-recsys")
 
 
 def normalize_weights(weights: dict[str, float]) -> dict[str, float]:
@@ -115,6 +113,15 @@ def train(
     score_weights = normalize_weights(RAW_SCORE_WEIGHTS)
 
     with mlflow.start_run(run_name=f"{model_type}_hybrid_v1"):
+        log_common_tags(stage="training")
+        mlflow.set_tags(
+            {
+                "model_family": model_type,
+                "matrix_path": matrix_path,
+                "feature_path": feature_path,
+                "model_path": model_path,
+            }
+        )
         mlflow.log_params(
             {
                 "model_type": model_type,
@@ -126,6 +133,12 @@ def train(
                 **{f"weight_{key}": value for key, value in score_weights.items()},
             }
         )
+        log_table_profile(interactions, "train_interactions")
+        log_table_profile(item_features, "item_features")
+        mlflow.log_metric("train_users", len(users))
+        mlflow.log_metric("train_items", len(items))
+        mlflow.log_metric("sparse_matrix_non_zero", int(sparse.nnz))
+        mlflow.log_metric("sparse_matrix_density", float(sparse.nnz / (sparse.shape[0] * sparse.shape[1])))
 
         model = build_model(
             model_type=model_type,

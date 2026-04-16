@@ -2,10 +2,14 @@ import argparse
 import json
 from pathlib import Path
 
+import mlflow
+
 try:
+    from src.model.mlflow_utils import configure_mlflow, log_common_tags
     from src.model.evaluate import evaluate
     from src.model.train import train
 except ModuleNotFoundError:
+    from mlflow_utils import configure_mlflow, log_common_tags
     from evaluate import evaluate
     from train import train
 
@@ -44,6 +48,7 @@ def compare_models(
     k: int = 5,
     max_users: int = 5000,
 ) -> list[dict]:
+    configure_mlflow()
     results = []
     model_dir = Path("models/experiments")
     model_dir.mkdir(parents=True, exist_ok=True)
@@ -71,6 +76,23 @@ def compare_models(
         results.append({"model_type": model_type, **metrics})
 
     Path(output_path).write_text(json.dumps(results, indent=2), encoding="utf-8")
+    with mlflow.start_run(run_name="model_comparison"):
+        log_common_tags(stage="model_comparison")
+        mlflow.set_tags(
+            {
+                "models_compared": ",".join(model_types),
+                "comparison_output_path": output_path,
+                "test_events_path": test_events_path,
+            }
+        )
+        for result in results:
+            model_type = result["model_type"]
+            mlflow.log_metric(f"{model_type}_precision_at_k", result["precision_at_k"])
+            mlflow.log_metric(f"{model_type}_recall_at_k", result["recall_at_k"])
+            mlflow.log_metric(f"{model_type}_hit_rate_at_k", result["hit_rate_at_k"])
+        best = max(results, key=lambda item: item["recall_at_k"])
+        mlflow.log_param("best_model_by_recall", best["model_type"])
+        mlflow.log_artifact(output_path)
     print(json.dumps(results, indent=2))
     return results
 

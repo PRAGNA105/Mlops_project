@@ -1,15 +1,15 @@
+import sys
 from pathlib import Path
 
 import joblib
 import mlflow
 import pandas as pd
 
-
-def configure_mlflow() -> None:
-    tracking_dir = Path("mlruns").resolve()
-    tracking_dir.mkdir(parents=True, exist_ok=True)
-    mlflow.set_tracking_uri(tracking_dir.as_uri())
-    mlflow.set_experiment("ecommerce-recsys")
+try:
+    from src.model.mlflow_utils import configure_mlflow, log_common_tags, log_event_profile
+except ModuleNotFoundError:
+    sys.path.append(str(Path(__file__).resolve().parents[2]))
+    from src.model.mlflow_utils import configure_mlflow, log_common_tags, log_event_profile
 
 
 def precision_at_k(model_artifacts: dict, test_df: pd.DataFrame, k: int = 5) -> float:
@@ -53,7 +53,18 @@ def run_drift_check(
     print(f"Precision@5 = {p_at_5:.4f}")
 
     with mlflow.start_run(run_name="drift_check"):
+        log_common_tags(stage="model_drift_check")
+        mlflow.set_tags(
+            {
+                "model_path": model_path,
+                "data_path": data_path,
+                "drift_signal": "precision_at_5_threshold",
+            }
+        )
+        log_event_profile(df, "drift_check_events")
+        mlflow.log_param("precision_threshold", threshold)
         mlflow.log_metric("precision_at_5", p_at_5)
+        mlflow.log_metric("model_drift_detected", int(p_at_5 < threshold))
 
     if p_at_5 < threshold:
         print("ALERT: model drift detected - retraining needed!")

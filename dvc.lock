@@ -63,8 +63,8 @@ stages:
       size: 2810336
     - path: src/model/train.py
       hash: md5
-      md5: 9e26ea7785be3841351913d47e4acfea
-      size: 7005
+      md5: d3fdde125acf06d9260abc429d209305
+      size: 7670
     outs:
     - path: models/als_model.joblib
       hash: md5
@@ -86,8 +86,8 @@ stages:
       size: 43692597
     - path: src/model/evaluate.py
       hash: md5
-      md5: 839bd51a615935bb991689dab9c894f6
-      size: 6056
+      md5: 7f70c061099333429fbe60dcd4a7fc34
+      size: 6452
     - path: src/model/predict.py
       hash: md5
       md5: be923dd95573d8588dd3104d878e8d1c
@@ -119,22 +119,22 @@ stages:
       size: 7337465
     - path: src/model/compare_models.py
       hash: md5
-      md5: a048fb79c1435ffb70517928dc19934b
-      size: 3128
+      md5: c66e2516b26f5e629124471e121efe9b
+      size: 4147
     - path: src/model/evaluate.py
       hash: md5
-      md5: 839bd51a615935bb991689dab9c894f6
-      size: 6056
+      md5: 7f70c061099333429fbe60dcd4a7fc34
+      size: 6452
     - path: src/model/predict.py
       hash: md5
       md5: be923dd95573d8588dd3104d878e8d1c
       size: 5396
     - path: src/model/train.py
       hash: md5
-      md5: 9e26ea7785be3841351913d47e4acfea
-      size: 7005
+      md5: d3fdde125acf06d9260abc429d209305
+      size: 7670
     outs:
     - path: data/processed/kaggle_model_comparison.json
       hash: md5
-      md5: c055761fee23122c453a18e13b171731
+      md5: 05cd7fb8c050fdcf56a6ab83efc4a18d
       size: 678

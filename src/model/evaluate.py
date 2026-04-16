@@ -7,16 +7,11 @@ import mlflow
 import pandas as pd
 
 try:
+    from src.model.mlflow_utils import configure_mlflow, log_common_tags, log_event_profile
     from src.model.predict import recommend_from_artifacts
 except ModuleNotFoundError:
+    from mlflow_utils import configure_mlflow, log_common_tags, log_event_profile
     from predict import recommend_from_artifacts
-
-
-def configure_mlflow() -> None:
-    tracking_dir = Path("mlruns").resolve()
-    tracking_dir.mkdir(parents=True, exist_ok=True)
-    mlflow.set_tracking_uri(tracking_dir.as_uri())
-    mlflow.set_experiment("ecommerce-recsys")
 
 
 def als_recommendations(
@@ -152,6 +147,15 @@ def evaluate(
     output_path.write_text(json.dumps(metrics, indent=2), encoding="utf-8")
 
     with mlflow.start_run(run_name="offline_evaluation"):
+        log_common_tags(stage="evaluation")
+        mlflow.set_tags(
+            {
+                "model_path": model_path,
+                "test_events_path": test_events_path,
+                "metrics_path": metrics_path,
+                "model_type": artifacts.get("model_type", "unknown"),
+            }
+        )
         mlflow.log_params(
             {
                 "evaluation_k": k,
@@ -159,6 +163,8 @@ def evaluate(
                 "candidate_multiplier": candidate_multiplier if mode == "hybrid" else None,
             }
         )
+        log_event_profile(test_events, "test_events")
+        mlflow.log_metric("test_interactions", int(len(test_interactions)))
         for key, value in metrics.items():
             if isinstance(value, (int, float)):
                 mlflow.log_metric(key, value)
