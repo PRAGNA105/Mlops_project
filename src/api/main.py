@@ -1,18 +1,26 @@
+import json
 import time
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from prometheus_client import Counter, Gauge, Histogram, make_asgi_app
 
 from src.kafka.consumer import EVENT_WEIGHTS, apply_event, live_store, start_consumer_thread
 from src.kafka.producer import publish_event
 from src.model.predict import recommend, trending_items
+from src.monitoring.monitoring_metrics import read_monitoring_metrics
 
 
 REQ_COUNT = Counter("rec_requests_total", "Total recommendation requests")
 LATENCY = Histogram("rec_latency_seconds", "Recommendation latency")
 UNIQUE_USERS = Gauge("rec_unique_users", "Active users in live store")
+DATA_DRIFT_DETECTED = Gauge("data_drift_detected", "Whether data drift was detected by the latest Evidently check")
+DRIFTED_FEATURES_COUNT = Gauge("drifted_features_count", "Number of drifted features from the latest data drift check")
+MODEL_DRIFT_DETECTED = Gauge("model_drift_detected", "Whether model drift was detected by the latest model drift check")
+PRECISION_AT_5 = Gauge("precision_at_5", "Latest offline model Precision@5 used for model drift monitoring")
 
 
 @asynccontextmanager
@@ -27,6 +35,15 @@ async def lifespan(_: FastAPI):
 
 app = FastAPI(title="Ecommerce Recsys API", lifespan=lifespan)
 app.mount("/metrics", make_asgi_app())
+BASE_DIR = Path(__file__).resolve().parents[2]
+PROCESSED_DIR = BASE_DIR / "data" / "processed"
+MODEL_DIR = BASE_DIR / "models"
+
+
+@app.middleware("http")
+async def refresh_metrics_before_request(request, call_next):
+    refresh_prometheus_monitoring_metrics()
+    return await call_next(request)
 
 
 class EventInput(BaseModel):
@@ -35,9 +52,69 @@ class EventInput(BaseModel):
     event: str
 
 
+def _read_json(path: Path, default):
+    if not path.exists():
+        return default
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def refresh_prometheus_monitoring_metrics() -> dict:
+    metrics = read_monitoring_metrics()
+    DATA_DRIFT_DETECTED.set(metrics["data_drift_detected"])
+    DRIFTED_FEATURES_COUNT.set(metrics["drifted_features_count"])
+    MODEL_DRIFT_DETECTED.set(metrics["model_drift_detected"])
+    PRECISION_AT_5.set(metrics["precision_at_5"])
+    return metrics
+
+
 @app.get("/health")
 def health() -> dict:
+    refresh_prometheus_monitoring_metrics()
     return {"status": "ok", "live_users": len(live_store)}
+
+
+@app.get("/", response_class=HTMLResponse)
+def dashboard_home() -> HTMLResponse:
+    return dashboard()
+
+
+@app.get("/dashboard", response_class=HTMLResponse)
+def dashboard() -> HTMLResponse:
+    html_path = Path(__file__).with_name("dashboard.html")
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
+
+
+@app.get("/api/results")
+def project_results() -> dict:
+    monitoring_metrics = refresh_prometheus_monitoring_metrics()
+    evaluation = _read_json(PROCESSED_DIR / "kaggle_evaluation_metrics.json", {})
+    comparison = _read_json(PROCESSED_DIR / "kaggle_model_comparison.json", [])
+    return {
+        "project": "Ecommerce Recommendation MLOps",
+        "dataset": {
+            "name": "Kaggle ecommerce events history in electronics store",
+            "raw_path": "data/raw/kaggle_events.csv",
+            "train_path": "data/processed/kaggle_train_events.csv",
+            "test_path": "data/processed/kaggle_test_events.csv",
+            "schema": ["timestamp", "visitorid", "event", "itemid", "transactionid"],
+        },
+        "pipeline": [
+            {"stage": "split_data", "output": "kaggle_train_events.csv + kaggle_test_events.csv"},
+            {"stage": "build_features", "output": "kaggle_interaction_matrix.csv + kaggle_item_features.csv"},
+            {"stage": "train_model", "output": "models/als_model.joblib"},
+            {"stage": "evaluate_model", "output": "kaggle_evaluation_metrics.json"},
+            {"stage": "compare_models", "output": "kaggle_model_comparison.json"},
+        ],
+        "evaluation": evaluation,
+        "model_comparison": comparison,
+        "serving": {
+            "api": "FastAPI",
+            "event_stream": "Kafka topic user-events",
+            "live_users": len(live_store),
+            "model_exists": (MODEL_DIR / "als_model.joblib").exists(),
+        },
+        "monitoring": monitoring_metrics,
+    }
 
 
 @app.post("/event")

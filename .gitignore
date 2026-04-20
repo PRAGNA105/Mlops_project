@@ -19,3 +19,5 @@ data/raw/kaggle/
 data/versioned/
 !data/versioned/.gitkeep
 outputs/
+monitoring/*.html
+monitoring/latest_metrics.json

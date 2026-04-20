@@ -7,9 +7,11 @@ import pandas as pd
 
 try:
     from src.model.mlflow_utils import configure_mlflow, log_common_tags, log_event_profile
+    from src.monitoring.monitoring_metrics import update_monitoring_metrics
 except ModuleNotFoundError:
     sys.path.append(str(Path(__file__).resolve().parents[2]))
     from src.model.mlflow_utils import configure_mlflow, log_common_tags, log_event_profile
+    from src.monitoring.monitoring_metrics import update_monitoring_metrics
 
 
 def precision_at_k(model_artifacts: dict, test_df: pd.DataFrame, k: int = 5) -> float:
@@ -68,6 +70,11 @@ def run_drift_check(
 
     if p_at_5 < threshold:
         print("ALERT: model drift detected - retraining needed!")
+
+    update_monitoring_metrics(
+        precision_at_5=round(float(p_at_5), 6),
+        model_drift_detected=int(p_at_5 < threshold),
+    )
 
     return p_at_5
 
