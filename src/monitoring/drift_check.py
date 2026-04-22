@@ -33,17 +33,75 @@ def extract_drift_summary(report: Report) -> tuple[int, int]:
     return 0, 0
 
 
-def calculate_fallback_drift(reference: pd.DataFrame, current: pd.DataFrame, threshold: float = 0.10) -> tuple[int, int]:
-    drifted_features_count = 0
+def calculate_drift_scores(reference: pd.DataFrame, current: pd.DataFrame) -> dict[str, float]:
+    scores = {}
     for column in reference.columns:
         reference_dist = reference[column].value_counts(normalize=True)
         current_dist = current[column].value_counts(normalize=True)
         all_values = reference_dist.index.union(current_dist.index)
-        total_variation = (reference_dist.reindex(all_values, fill_value=0) - current_dist.reindex(all_values, fill_value=0)).abs().sum() / 2
+        total_variation = (
+            reference_dist.reindex(all_values, fill_value=0)
+            - current_dist.reindex(all_values, fill_value=0)
+        ).abs().sum() / 2
+        scores[column] = round(float(total_variation), 6)
+    return scores
+
+
+def calculate_fallback_drift(reference: pd.DataFrame, current: pd.DataFrame, threshold: float = 0.10) -> tuple[int, int, float]:
+    drift_scores = calculate_drift_scores(reference, current)
+    drifted_features_count = 0
+    for total_variation in drift_scores.values():
         if total_variation > threshold:
             drifted_features_count += 1
 
-    return int(drifted_features_count > 0), drifted_features_count
+    average_drift_score = sum(drift_scores.values()) / len(drift_scores) if drift_scores else 0.0
+    return int(drifted_features_count > 0), drifted_features_count, round(float(average_drift_score), 6)
+
+
+def prepare_drift_frame(frame: pd.DataFrame) -> pd.DataFrame:
+    prepared = frame.copy()
+    prepared["event_code"] = prepared["event"].map({"view": 1, "addtocart": 2, "transaction": 3})
+    prepared = prepared.dropna(subset=["event_code", "itemid"])
+    return prepared[["event_code", "itemid"]]
+
+
+def update_data_drift_from_production(
+    reference_path: str = "data/raw/kaggle_events.csv",
+    production_path: str = "data/production/live_production.csv",
+    threshold: float = 0.10,
+) -> dict:
+    production_file = Path(production_path)
+    if not production_file.exists() or production_file.stat().st_size == 0:
+        metrics = update_monitoring_metrics(
+            data_drift_detected=0,
+            data_drift_score=0.0,
+            drifted_features_count=0,
+        )
+        return metrics
+
+    reference_df = pd.read_csv(reference_path)
+    production_df = pd.read_csv(production_file)
+    if production_df.empty:
+        metrics = update_monitoring_metrics(
+            data_drift_detected=0,
+            data_drift_score=0.0,
+            drifted_features_count=0,
+        )
+        return metrics
+
+    midpoint = len(reference_df) // 2
+    reference = prepare_drift_frame(reference_df.iloc[:midpoint])
+    current = prepare_drift_frame(production_df)
+    data_drift_detected, drifted_features_count, data_drift_score = calculate_fallback_drift(
+        reference,
+        current,
+        threshold=threshold,
+    )
+    return update_monitoring_metrics(
+        data_drift_detected=data_drift_detected,
+        data_drift_score=data_drift_score,
+        drifted_features_count=drifted_features_count,
+    )
 
 
 def check_data_drift(
@@ -52,27 +110,29 @@ def check_data_drift(
 ) -> None:
     df = pd.read_csv(data_path)
     df["datetime"] = pd.to_datetime(df["timestamp"], unit="ms")
-    df["event_code"] = df["event"].map({"view": 1, "addtocart": 2, "transaction": 3})
 
     midpoint = len(df) // 2
-    reference = df.iloc[:midpoint][["event_code", "itemid"]]
-    current = df.iloc[midpoint:][["event_code", "itemid"]]
+    reference = prepare_drift_frame(df.iloc[:midpoint])
+    current = prepare_drift_frame(df.iloc[midpoint:])
 
     report = Report(metrics=[DataDriftPreset()])
     report.run(reference_data=reference, current_data=current)
     data_drift_detected, drifted_features_count = extract_drift_summary(report)
+    _, _, data_drift_score = calculate_fallback_drift(reference, current)
     if not data_drift_detected and not drifted_features_count:
-        data_drift_detected, drifted_features_count = calculate_fallback_drift(reference, current)
+        data_drift_detected, drifted_features_count, data_drift_score = calculate_fallback_drift(reference, current)
 
     target = Path(output_path)
     target.parent.mkdir(parents=True, exist_ok=True)
     report.save_html(str(target))
     update_monitoring_metrics(
         data_drift_detected=data_drift_detected,
+        data_drift_score=data_drift_score,
         drifted_features_count=drifted_features_count,
     )
     print(f"Drift report saved to {target}")
     print(f"data_drift_detected={data_drift_detected}")
+    print(f"data_drift_score={data_drift_score}")
     print(f"drifted_features_count={drifted_features_count}")
 
 

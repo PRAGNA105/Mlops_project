@@ -32,6 +32,7 @@ services:
     volumes:
       - ./data:/app/data
       - ./models:/app/models
+      - ./monitoring:/app/monitoring
     environment:
       KAFKA_BOOTSTRAP: kafka:9092
 

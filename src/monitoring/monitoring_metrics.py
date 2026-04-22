@@ -5,8 +5,10 @@ from pathlib import Path
 METRICS_PATH = Path("monitoring/latest_metrics.json")
 DEFAULT_METRICS = {
     "data_drift_detected": 0,
+    "data_drift_score": 0.0,
     "drifted_features_count": 0,
     "model_drift_detected": 0,
+    "model_drift_score": 0.0,
     "precision_at_5": 0.0,
 }
 

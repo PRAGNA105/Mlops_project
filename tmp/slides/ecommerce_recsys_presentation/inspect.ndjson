@@ -1,0 +1,789 @@
+{"kind":"deck","id":"ecommerce_recsys_presentation","slideCount":26,"slideSize":{"width":1280,"height":720}}
+{"kind":"slide","slide":1,"id":"c8l48b"}
+{"kind":"slide","slide":2,"id":"dgfky5"}
+{"kind":"slide","slide":3,"id":"ezbbvk"}
+{"kind":"slide","slide":4,"id":"iw3ull"}
+{"kind":"slide","slide":5,"id":"o6ip43"}
+{"kind":"slide","slide":6,"id":"q07o8j"}
+{"kind":"slide","slide":7,"id":"5g178t"}
+{"kind":"slide","slide":8,"id":"il4twt"}
+{"kind":"slide","slide":9,"id":"j3fz31"}
+{"kind":"slide","slide":10,"id":"o5iuwr"}
+{"kind":"slide","slide":11,"id":"zp3hsn"}
+{"kind":"slide","slide":12,"id":"tnr0k6"}
+{"kind":"slide","slide":13,"id":"6rbofk"}
+{"kind":"slide","slide":14,"id":"6rd68i"}
+{"kind":"slide","slide":15,"id":"jm372o"}
+{"kind":"slide","slide":16,"id":"lq9qc5"}
+{"kind":"slide","slide":17,"id":"taxk0k"}
+{"kind":"slide","slide":18,"id":"voy9li"}
+{"kind":"slide","slide":19,"id":"2plyt9"}
+{"kind":"slide","slide":20,"id":"bgww63"}
+{"kind":"slide","slide":21,"id":"dltvx6"}
+{"kind":"slide","slide":22,"id":"hnkttd"}
+{"kind":"slide","slide":23,"id":"2al9b6"}
+{"kind":"slide","slide":24,"id":"9ow38e"}
+{"kind":"slide","slide":25,"id":"y2rkvb"}
+{"kind":"slide","slide":26,"id":"kzprvx"}
+{"kind":"image","slide":1,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":1,"id":"3","role":"cover contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":1,"id":"4","role":"cover accent rule","shapeType":"rect","bbox":[64,86,7,455]}
+{"kind":"textbox","slide":1,"id":"5","role":"kicker","text":"Ecommerce Recommendation System","textPreview":"Ecommerce Recommendation System","textChars":31,"textLines":1,"bbox":[86,88,520,26]}
+{"kind":"textbox","slide":1,"id":"6","role":"cover title","text":"MLOps Pipeline for Real User Recommendations","textPreview":"MLOps Pipeline for Real User Recommendations","textChars":44,"textLines":1,"bbox":[82,130,785,184]}
+{"kind":"textbox","slide":1,"id":"7","role":"cover subtitle","text":"A recommendation system built from Kaggle interaction data, manual API events, Kafka streaming, MLflow tracking, DVC versioning, FastAPI serving, Prometheus monitoring, and GitHub CI/CD.","textPreview":"A recommendation system built from Kaggle interaction data, manual API events, Kafka streaming, MLflow tracking, DVC versioning, FastAPI serving, Prometheus monitoring, and GitHub ","textChars":186,"textLines":1,"bbox":[86,326,610,86]}
+{"kind":"shape","slide":1,"id":"8","role":"cover moment panel","shapeType":"roundRect","bbox":[86,444,500,148]}
+{"kind":"textbox","slide":1,"id":"9","role":"cover moment","text":"Opening line: Real recommendation systems are hard because real user behavior is sparse, skewed, noisy, and constantly changing.","textPreview":"Opening line: Real recommendation systems are hard because real user behavior is sparse, skewed, noisy, and constantly changing.","textChars":128,"textLines":1,"bbox":[112,466,448,104]}
+{"kind":"textbox","slide":1,"id":"10","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":2,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":2,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":2,"id":"4","role":"header","text":"PROBLEM","textPreview":"PROBLEM","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":2,"id":"5","role":"header","text":"02 / 26","textPreview":"02 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":2,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":2,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":2,"id":"8","role":"title","text":"Problem Statement","textPreview":"Problem Statement","textChars":17,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":2,"id":"9","role":"subtitle","text":"Build a production-style recommendation pipeline that can learn from historical ecommerce behavior and accept new user events through an API.","textPreview":"Build a production-style recommendation pipeline that can learn from historical ecommerce behavior and accept new user events through an API.","textChars":141,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":2,"id":"10","role":"card panel: Goal","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":2,"id":"11","role":"card accent: Goal","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":2,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":2,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":2,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":2,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":2,"id":"16","role":"card label","text":"Goal","textPreview":"Goal","textChars":4,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"17","role":"card body: Goal","text":"Recommend relevant products\nfor each user from implicit\nbehavior, not from ratings\nor labels.","textPreview":"Recommend relevant products | for each user from implicit | behavior, not from ratings | or labels.","textChars":93,"textLines":4,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":2,"id":"18","role":"card panel: Challenge","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":2,"id":"19","role":"card accent: Challenge","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":2,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":2,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":2,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":2,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":2,"id":"24","role":"card label","text":"Challenge","textPreview":"Challenge","textChars":9,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"25","role":"card body: Challenge","text":"The data has no explicit\ntarget column and most users\nhave very few events.","textPreview":"The data has no explicit | target column and most users | have very few events.","textChars":75,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":2,"id":"26","role":"card panel: MLOps","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":2,"id":"27","role":"card accent: MLOps","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":2,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":2,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":2,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":2,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":2,"id":"32","role":"card label","text":"MLOps","textPreview":"MLOps","textChars":5,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":2,"id":"33","role":"card body: MLOps","text":"Track data, models,\nexperiments, serving,\nstreaming, monitoring, and\nCI/CD as one pipeline.","textPreview":"Track data, models, | experiments, serving, | streaming, monitoring, and | CI/CD as one pipeline.","textChars":91,"textLines":4,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":2,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":3,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":3,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":3,"id":"4","role":"header","text":"DATASET CHOICE","textPreview":"DATASET CHOICE","textChars":14,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":3,"id":"5","role":"header","text":"03 / 26","textPreview":"03 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":3,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":3,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":3,"id":"8","role":"title","text":"Why Kaggle Instead of Synthetic Data","textPreview":"Why Kaggle Instead of Synthetic Data","textChars":36,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":3,"id":"9","role":"subtitle","text":"Free ecommerce APIs usually expose product catalogs, but not rich user-item interaction histories.","textPreview":"Free ecommerce APIs usually expose product catalogs, but not rich user-item interaction histories.","textChars":98,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":3,"id":"10","role":"metric panel: Real ecommerce events after import","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":3,"id":"11","role":"metric accent: Real ecommerce events after import","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":3,"id":"12","role":"metric value","text":"618K+","textPreview":"618K+","textChars":5,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":3,"id":"13","role":"metric label","text":"Real ecommerce events after import","textPreview":"Real ecommerce events after import","textChars":34,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":3,"id":"14","role":"metric note","text":"Views, carts, purchases","textPreview":"Views, carts, purchases","textChars":23,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":3,"id":"15","role":"metric panel: Users in the interaction data","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":3,"id":"16","role":"metric accent: Users in the interaction data","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":3,"id":"17","role":"metric value","text":"140K+","textPreview":"140K+","textChars":5,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":3,"id":"18","role":"metric label","text":"Users in the interaction data","textPreview":"Users in the interaction data","textChars":29,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":3,"id":"19","role":"metric note","text":"Enough for user-level evaluation","textPreview":"Enough for user-level evaluation","textChars":32,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":3,"id":"20","role":"metric panel: Items in the raw dataset","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":3,"id":"21","role":"metric accent: Items in the raw dataset","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":3,"id":"22","role":"metric value","text":"40K+","textPreview":"40K+","textChars":4,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":3,"id":"23","role":"metric label","text":"Items in the raw dataset","textPreview":"Items in the raw dataset","textChars":24,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":3,"id":"24","role":"metric note","text":"Real recommendation candidate space","textPreview":"Real recommendation candidate space","textChars":35,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":3,"id":"25","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":4,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":4,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":4,"id":"4","role":"header","text":"INPUTS","textPreview":"INPUTS","textChars":6,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":4,"id":"5","role":"header","text":"04 / 26","textPreview":"04 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":4,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":4,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":4,"id":"8","role":"title","text":"Two Input Streams","textPreview":"Two Input Streams","textChars":17,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":4,"id":"9","role":"subtitle","text":"The project combines offline historical data with live manual events from FastAPI.","textPreview":"The project combines offline historical data with live manual events from FastAPI.","textChars":82,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":4,"id":"10","role":"card panel: Kaggle Data","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":4,"id":"11","role":"card accent: Kaggle Data","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":4,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":4,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":4,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":4,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":4,"id":"16","role":"card label","text":"Kaggle Data","textPreview":"Kaggle Data","textChars":11,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":4,"id":"17","role":"card body: Kaggle Data","text":"Historical user events are\nimported and normalized into\nthe project schema.","textPreview":"Historical user events are | imported and normalized into | the project schema.","textChars":75,"textLines":3,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":4,"id":"18","role":"card panel: Manual API","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":4,"id":"19","role":"card accent: Manual API","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":4,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":4,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":4,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":4,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":4,"id":"24","role":"card label","text":"Manual API","textPreview":"Manual API","textChars":10,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":4,"id":"25","role":"card body: Manual API","text":"A user can send events like\nview, addtocart, or\ntransaction through /event.","textPreview":"A user can send events like | view, addtocart, or | transaction through /event.","textChars":75,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":4,"id":"26","role":"card panel: Same Meaning","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":4,"id":"27","role":"card accent: Same Meaning","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":4,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":4,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":4,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":4,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":4,"id":"32","role":"card label","text":"Same Meaning","textPreview":"Same Meaning","textChars":12,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":4,"id":"33","role":"card body: Same Meaning","text":"Both represent user-item\nbehavior, so the system can\ntreat them as implicit\nfeedback.","textPreview":"Both represent user-item | behavior, so the system can | treat them as implicit | feedback.","textChars":85,"textLines":4,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":4,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":5,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":5,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":5,"id":"4","role":"header","text":"ARCHITECTURE","textPreview":"ARCHITECTURE","textChars":12,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":5,"id":"5","role":"header","text":"05 / 26","textPreview":"05 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":5,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":5,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":5,"id":"8","role":"title","text":"End-to-End Pipeline","textPreview":"End-to-End Pipeline","textChars":19,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":5,"id":"9","role":"subtitle","text":"Offline training and online serving are connected, but they have different responsibilities.","textPreview":"Offline training and online serving are connected, but they have different responsibilities.","textChars":92,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":5,"id":"10","role":"card panel: Offline","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":5,"id":"11","role":"card accent: Offline","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":5,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":5,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":5,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":5,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":5,"id":"16","role":"card label","text":"Offline","textPreview":"Offline","textChars":7,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"17","role":"card body: Offline","text":"Ingestion -> split ->\nfeatures -> train ->\nevaluate -> compare ->\ntrack.","textPreview":"Ingestion -> split -> | features -> train -> | evaluate -> compare -> | track.","textChars":72,"textLines":4,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":5,"id":"18","role":"card panel: Online","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":5,"id":"19","role":"card accent: Online","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":5,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":5,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":5,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":5,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":5,"id":"24","role":"card label","text":"Online","textPreview":"Online","textChars":6,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"25","role":"card body: Online","text":"FastAPI receives requests,\nserves recommendations, and\npublishes events to Kafka.","textPreview":"FastAPI receives requests, | serves recommendations, and | publishes events to Kafka.","textChars":81,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":5,"id":"26","role":"card panel: Monitoring","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":5,"id":"27","role":"card accent: Monitoring","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":5,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":5,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":5,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":5,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":5,"id":"32","role":"card label","text":"Monitoring","textPreview":"Monitoring","textChars":10,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":5,"id":"33","role":"card body: Monitoring","text":"Prometheus scrapes API,\nmodel, and drift metrics\nfrom the /metrics endpoint.","textPreview":"Prometheus scrapes API, | model, and drift metrics | from the /metrics endpoint.","textChars":76,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":5,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":6,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":6,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":6,"id":"4","role":"header","text":"INGESTION","textPreview":"INGESTION","textChars":9,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":6,"id":"5","role":"header","text":"06 / 26","textPreview":"06 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":6,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":6,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":6,"id":"8","role":"title","text":"Data Ingestion","textPreview":"Data Ingestion","textChars":14,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":6,"id":"9","role":"subtitle","text":"Kaggle events are downloaded, cleaned, and saved in the same schema expected by the old project code.","textPreview":"Kaggle events are downloaded, cleaned, and saved in the same schema expected by the old project code.","textChars":101,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":6,"id":"10","role":"metric panel: Kept as view","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":6,"id":"11","role":"metric accent: Kept as view","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":6,"id":"12","role":"metric value","text":"view","textPreview":"view","textChars":4,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":6,"id":"13","role":"metric label","text":"Kept as view","textPreview":"Kept as view","textChars":12,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":6,"id":"14","role":"metric note","text":"Low-strength signal","textPreview":"Low-strength signal","textChars":19,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":6,"id":"15","role":"metric panel: Mapped to addtocart","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":6,"id":"16","role":"metric accent: Mapped to addtocart","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":6,"id":"17","role":"metric value","text":"cart","textPreview":"cart","textChars":4,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":6,"id":"18","role":"metric label","text":"Mapped to addtocart","textPreview":"Mapped to addtocart","textChars":19,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":6,"id":"19","role":"metric note","text":"Medium-strength signal","textPreview":"Medium-strength signal","textChars":22,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":6,"id":"20","role":"metric panel: Mapped to transaction","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":6,"id":"21","role":"metric accent: Mapped to transaction","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":6,"id":"22","role":"metric value","text":"purchase","textPreview":"purchase","textChars":8,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":6,"id":"23","role":"metric label","text":"Mapped to transaction","textPreview":"Mapped to transaction","textChars":21,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":6,"id":"24","role":"metric note","text":"High-strength signal","textPreview":"High-strength signal","textChars":20,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":6,"id":"25","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":7,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":7,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":7,"id":"4","role":"header","text":"EDA","textPreview":"EDA","textChars":3,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":7,"id":"5","role":"header","text":"07 / 26","textPreview":"07 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":7,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":7,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":7,"id":"8","role":"title","text":"EDA: Skewed User Behavior","textPreview":"EDA: Skewed User Behavior","textChars":25,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":7,"id":"9","role":"subtitle","text":"The event distribution is highly skewed: many users interact once or twice, while a small number interact heavily.","textPreview":"The event distribution is highly skewed: many users interact once or twice, while a small number interact heavily.","textChars":114,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":7,"id":"10","role":"card panel: Skew","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":7,"id":"11","role":"card accent: Skew","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":7,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":7,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":7,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":7,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":7,"id":"16","role":"card label","text":"Skew","textPreview":"Skew","textChars":4,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"17","role":"card body: Skew","text":"Most users have very low\nevent counts, so profiles\nare weak.","textPreview":"Most users have very low | event counts, so profiles | are weak.","textChars":60,"textLines":3,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":7,"id":"18","role":"card panel: Sparsity","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":7,"id":"19","role":"card accent: Sparsity","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":7,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":7,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":7,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":7,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":7,"id":"24","role":"card label","text":"Sparsity","textPreview":"Sparsity","textChars":8,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"25","role":"card body: Sparsity","text":"User-item matrix density is\nabout 0.0044 percent.","textPreview":"User-item matrix density is | about 0.0044 percent.","textChars":49,"textLines":2,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":7,"id":"26","role":"card panel: Impact","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":7,"id":"27","role":"card accent: Impact","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":7,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":7,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":7,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":7,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":7,"id":"32","role":"card label","text":"Impact","textPreview":"Impact","textChars":6,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":7,"id":"33","role":"card body: Impact","text":"Top-5 recommendation is\ndifficult when there are\ntens of thousands of items.","textPreview":"Top-5 recommendation is | difficult when there are | tens of thousands of items.","textChars":76,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":7,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":8,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":8,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":8,"id":"4","role":"header","text":"PROCESSING","textPreview":"PROCESSING","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":8,"id":"5","role":"header","text":"08 / 26","textPreview":"08 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":8,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":8,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":8,"id":"8","role":"title","text":"Data Processing","textPreview":"Data Processing","textChars":15,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":8,"id":"9","role":"subtitle","text":"The raw events are filtered and split so users in test have enough history to evaluate recommendations.","textPreview":"The raw events are filtered and split so users in test have enough history to evaluate recommendations.","textChars":103,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":8,"id":"10","role":"card panel: Clean Schema","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":8,"id":"11","role":"card accent: Clean Schema","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":8,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":8,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":8,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":8,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":8,"id":"16","role":"card label","text":"Clean Schema","textPreview":"Clean Schema","textChars":12,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"17","role":"card body: Clean Schema","text":"Every event has user id,\nitem id, event type,\ntimestamp, and optional\ntransaction id.","textPreview":"Every event has user id, | item id, event type, | timestamp, and optional | transaction id.","textChars":85,"textLines":4,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":8,"id":"18","role":"card panel: Minimum History","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":8,"id":"19","role":"card accent: Minimum History","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":8,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":8,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":8,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":8,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":8,"id":"24","role":"card label","text":"Minimum History","textPreview":"Minimum History","textChars":15,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"25","role":"card body: Minimum History","text":"Users need at least two\nunique items for train/test\nholdout.","textPreview":"Users need at least two | unique items for train/test | holdout.","textChars":60,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":8,"id":"26","role":"card panel: Outputs","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":8,"id":"27","role":"card accent: Outputs","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":8,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":8,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":8,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":8,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":8,"id":"32","role":"card label","text":"Outputs","textPreview":"Outputs","textChars":7,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":8,"id":"33","role":"card body: Outputs","text":"Processed train and test\nevent CSVs are produced by\nthe DVC split stage.","textPreview":"Processed train and test | event CSVs are produced by | the DVC split stage.","textChars":72,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":8,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":9,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":9,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":9,"id":"4","role":"header","text":"SPLIT","textPreview":"SPLIT","textChars":5,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":9,"id":"5","role":"header","text":"09 / 26","textPreview":"09 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":9,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":9,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":9,"id":"8","role":"title","text":"Train-Test Split Without a Target Column","textPreview":"Train-Test Split Without a Target Column","textChars":40,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":9,"id":"9","role":"subtitle","text":"Recommendation evaluation uses a user-level time holdout instead of a normal supervised split.","textPreview":"Recommendation evaluation uses a user-level time holdout instead of a normal supervised split.","textChars":94,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":9,"id":"10","role":"metric panel: Held out for testing","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":9,"id":"11","role":"metric accent: Held out for testing","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":9,"id":"12","role":"metric value","text":"latest item","textPreview":"latest item","textChars":11,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":9,"id":"13","role":"metric label","text":"Held out for testing","textPreview":"Held out for testing","textChars":20,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":9,"id":"14","role":"metric note","text":"What the model must recover","textPreview":"What the model must recover","textChars":27,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":9,"id":"15","role":"metric panel: Used for training","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":9,"id":"16","role":"metric accent: Used for training","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":9,"id":"17","role":"metric value","text":"older items","textPreview":"older items","textChars":11,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":9,"id":"18","role":"metric label","text":"Used for training","textPreview":"Used for training","textChars":17,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":9,"id":"19","role":"metric note","text":"User history signal","textPreview":"User history signal","textChars":19,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":9,"id":"20","role":"metric panel: Recommendations evaluated","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":9,"id":"21","role":"metric accent: Recommendations evaluated","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":9,"id":"22","role":"metric value","text":"top-5","textPreview":"top-5","textChars":5,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":9,"id":"23","role":"metric label","text":"Recommendations evaluated","textPreview":"Recommendations evaluated","textChars":25,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":9,"id":"24","role":"metric note","text":"Precision, recall, hit rate","textPreview":"Precision, recall, hit rate","textChars":27,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":9,"id":"25","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":10,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":10,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":10,"id":"4","role":"header","text":"FEATURES","textPreview":"FEATURES","textChars":8,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":10,"id":"5","role":"header","text":"10 / 26","textPreview":"10 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":10,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":10,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":10,"id":"8","role":"title","text":"Feature Engineering","textPreview":"Feature Engineering","textChars":19,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":10,"id":"9","role":"subtitle","text":"Implicit feedback is converted into weighted user-item interactions and item-level signals.","textPreview":"Implicit feedback is converted into weighted user-item interactions and item-level signals.","textChars":91,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":10,"id":"10","role":"card panel: Event Weight","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":10,"id":"11","role":"card accent: Event Weight","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":10,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":10,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":10,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":10,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":10,"id":"16","role":"card label","text":"Event Weight","textPreview":"Event Weight","textChars":12,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":10,"id":"17","role":"card body: Event Weight","text":"view = 1, addtocart = 3,\ntransaction = 5.","textPreview":"view = 1, addtocart = 3, | transaction = 5.","textChars":41,"textLines":2,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":10,"id":"18","role":"card panel: Matrix","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":10,"id":"19","role":"card accent: Matrix","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":10,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":10,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":10,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":10,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":10,"id":"24","role":"card label","text":"Matrix","textPreview":"Matrix","textChars":6,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":10,"id":"25","role":"card body: Matrix","text":"Rows are users, columns are\nitems, values are weighted\ninteractions.","textPreview":"Rows are users, columns are | items, values are weighted | interactions.","textChars":68,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":10,"id":"26","role":"card panel: Item Features","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":10,"id":"27","role":"card accent: Item Features","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":10,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":10,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":10,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":10,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":10,"id":"32","role":"card label","text":"Item Features","textPreview":"Item Features","textChars":13,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":10,"id":"33","role":"card body: Item Features","text":"Popularity, trend, event\nrates, and category-like\nsignals support hybrid\nscoring.","textPreview":"Popularity, trend, event | rates, and category-like | signals support hybrid | scoring.","textChars":81,"textLines":4,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":10,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":11,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":11,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":11,"id":"4","role":"header","text":"MODELS","textPreview":"MODELS","textChars":6,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":11,"id":"5","role":"header","text":"11 / 26","textPreview":"11 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":11,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":11,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":11,"id":"8","role":"title","text":"Three Models Trained","textPreview":"Three Models Trained","textChars":20,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":11,"id":"9","role":"subtitle","text":"We compared collaborative filtering models that are suitable for implicit user-event data.","textPreview":"We compared collaborative filtering models that are suitable for implicit user-event data.","textChars":90,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":11,"id":"10","role":"card panel: ALS","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":11,"id":"11","role":"card accent: ALS","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":11,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":11,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":11,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":11,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":11,"id":"16","role":"card label","text":"ALS","textPreview":"ALS","textChars":3,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":11,"id":"17","role":"card body: ALS","text":"Alternating Least Squares\nlearns latent user and item\nfactors from implicit\nfeedback.","textPreview":"Alternating Least Squares | learns latent user and item | factors from implicit | feedback.","textChars":85,"textLines":4,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":11,"id":"18","role":"card panel: BPR","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":11,"id":"19","role":"card accent: BPR","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":11,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":11,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":11,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":11,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":11,"id":"24","role":"card label","text":"BPR","textPreview":"BPR","textChars":3,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":11,"id":"25","role":"card body: BPR","text":"Bayesian Personalized\nRanking optimizes item\nranking from positive\ninteractions.","textPreview":"Bayesian Personalized | Ranking optimizes item | ranking from positive | interactions.","textChars":80,"textLines":4,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":11,"id":"26","role":"card panel: LMF","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":11,"id":"27","role":"card accent: LMF","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":11,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":11,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":11,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":11,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":11,"id":"32","role":"card label","text":"LMF","textPreview":"LMF","textChars":3,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":11,"id":"33","role":"card body: LMF","text":"Logistic Matrix\nFactorization models\ninteraction probability with\nlatent factors.","textPreview":"Logistic Matrix | Factorization models | interaction probability with | latent factors.","textChars":81,"textLines":4,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":11,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":12,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":12,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":12,"id":"4","role":"header","text":"MODEL DETAIL","textPreview":"MODEL DETAIL","textChars":12,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":12,"id":"5","role":"header","text":"12 / 26","textPreview":"12 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":12,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":12,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":12,"id":"8","role":"title","text":"ALS: Main Production Model","textPreview":"ALS: Main Production Model","textChars":26,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":12,"id":"9","role":"subtitle","text":"ALS factorizes the user-item matrix and works well for large sparse implicit-feedback data.","textPreview":"ALS factorizes the user-item matrix and works well for large sparse implicit-feedback data.","textChars":91,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":12,"id":"10","role":"metric panel: Latent factors","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":12,"id":"11","role":"metric accent: Latent factors","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":12,"id":"12","role":"metric value","text":"32","textPreview":"32","textChars":2,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":12,"id":"13","role":"metric label","text":"Latent factors","textPreview":"Latent factors","textChars":14,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":12,"id":"14","role":"metric note","text":"User/item embedding size","textPreview":"User/item embedding size","textChars":24,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":12,"id":"15","role":"metric panel: Training iterations","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":12,"id":"16","role":"metric accent: Training iterations","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":12,"id":"17","role":"metric value","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":12,"id":"18","role":"metric label","text":"Training iterations","textPreview":"Training iterations","textChars":19,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":12,"id":"19","role":"metric note","text":"DVC production run","textPreview":"DVC production run","textChars":18,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":12,"id":"20","role":"metric panel: Confidence scaling","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":12,"id":"21","role":"metric accent: Confidence scaling","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":12,"id":"22","role":"metric value","text":"alpha 20","textPreview":"alpha 20","textChars":8,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":12,"id":"23","role":"metric label","text":"Confidence scaling","textPreview":"Confidence scaling","textChars":18,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":12,"id":"24","role":"metric note","text":"Higher weight for observed events","textPreview":"Higher weight for observed events","textChars":33,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":12,"id":"25","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":13,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":13,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":13,"id":"4","role":"header","text":"MODEL DETAIL","textPreview":"MODEL DETAIL","textChars":12,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":13,"id":"5","role":"header","text":"13 / 26","textPreview":"13 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":13,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":13,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":13,"id":"8","role":"title","text":"BPR: Ranking-Based Model","textPreview":"BPR: Ranking-Based Model","textChars":24,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":13,"id":"9","role":"subtitle","text":"BPR learns to rank interacted items above non-interacted items.","textPreview":"BPR learns to rank interacted items above non-interacted items.","textChars":63,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":13,"id":"10","role":"card panel: Objective","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":13,"id":"11","role":"card accent: Objective","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":13,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":13,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":13,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":13,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":13,"id":"16","role":"card label","text":"Objective","textPreview":"Objective","textChars":9,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":13,"id":"17","role":"card body: Objective","text":"Optimizes pairwise ranking\ninstead of rating\nprediction.","textPreview":"Optimizes pairwise ranking | instead of rating | prediction.","textChars":56,"textLines":3,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":13,"id":"18","role":"card panel: Strength","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":13,"id":"19","role":"card accent: Strength","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":13,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":13,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":13,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":13,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":13,"id":"24","role":"card label","text":"Strength","textPreview":"Strength","textChars":8,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":13,"id":"25","role":"card body: Strength","text":"Useful when the main goal is\nitem order in a\nrecommendation list.","textPreview":"Useful when the main goal is | item order in a | recommendation list.","textChars":65,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":13,"id":"26","role":"card panel: Result","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":13,"id":"27","role":"card accent: Result","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":13,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":13,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":13,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":13,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":13,"id":"32","role":"card label","text":"Result","textPreview":"Result","textChars":6,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":13,"id":"33","role":"card body: Result","text":"In this dataset it\nunderperformed ALS because\ninteractions are very\nsparse.","textPreview":"In this dataset it | underperformed ALS because | interactions are very | sparse.","textChars":75,"textLines":4,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":13,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":14,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":14,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":14,"id":"4","role":"header","text":"MODEL DETAIL","textPreview":"MODEL DETAIL","textChars":12,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":14,"id":"5","role":"header","text":"14 / 26","textPreview":"14 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":14,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":14,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":14,"id":"8","role":"title","text":"LMF: Logistic Matrix Factorization","textPreview":"LMF: Logistic Matrix Factorization","textChars":34,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":14,"id":"9","role":"subtitle","text":"LMF estimates interaction likelihood using latent factors and a logistic objective.","textPreview":"LMF estimates interaction likelihood using latent factors and a logistic objective.","textChars":83,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":14,"id":"10","role":"card panel: Idea","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":14,"id":"11","role":"card accent: Idea","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":14,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":14,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":14,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":14,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":14,"id":"16","role":"card label","text":"Idea","textPreview":"Idea","textChars":4,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":14,"id":"17","role":"card body: Idea","text":"Learns user and item vectors\nsimilar to ALS, but with a\nprobability-style objective.","textPreview":"Learns user and item vectors | similar to ALS, but with a | probability-style objective.","textChars":84,"textLines":3,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":14,"id":"18","role":"card panel: Tuning","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":14,"id":"19","role":"card accent: Tuning","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":14,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":14,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":14,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":14,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":14,"id":"24","role":"card label","text":"Tuning","textPreview":"Tuning","textChars":6,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":14,"id":"25","role":"card body: Tuning","text":"Factors, iterations,\nregularization, alpha, and\nlearning rate affect ranking\nquality.","textPreview":"Factors, iterations, | regularization, alpha, and | learning rate affect ranking | quality.","textChars":85,"textLines":4,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":14,"id":"26","role":"card panel: Use","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":14,"id":"27","role":"card accent: Use","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":14,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":14,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":14,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":14,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":14,"id":"32","role":"card label","text":"Use","textPreview":"Use","textChars":3,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":14,"id":"33","role":"card body: Use","text":"Included as a second matrix\nfactorization baseline\nbeyond ALS and BPR.","textPreview":"Included as a second matrix | factorization baseline | beyond ALS and BPR.","textChars":70,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":14,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":15,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":15,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":15,"id":"4","role":"header","text":"HYBRID RANKER","textPreview":"HYBRID RANKER","textChars":13,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":15,"id":"5","role":"header","text":"15 / 26","textPreview":"15 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":15,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":15,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":15,"id":"8","role":"title","text":"Hybrid Recommendation Score","textPreview":"Hybrid Recommendation Score","textChars":27,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":15,"id":"9","role":"subtitle","text":"The final ranking combines collaborative model scores with item and behavior signals.","textPreview":"The final ranking combines collaborative model scores with item and behavior signals.","textChars":85,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":15,"id":"10","role":"metric panel: Affinity weight","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":15,"id":"11","role":"metric accent: Affinity weight","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":15,"id":"12","role":"metric value","text":"0.28","textPreview":"0.28","textChars":4,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":15,"id":"13","role":"metric label","text":"Affinity weight","textPreview":"Affinity weight","textChars":15,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":15,"id":"14","role":"metric note","text":"Model/user interaction score","textPreview":"Model/user interaction score","textChars":28,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":15,"id":"15","role":"metric panel: Category-like weight","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":15,"id":"16","role":"metric accent: Category-like weight","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":15,"id":"17","role":"metric value","text":"0.24","textPreview":"0.24","textChars":4,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":15,"id":"18","role":"metric label","text":"Category-like weight","textPreview":"Category-like weight","textChars":20,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":15,"id":"19","role":"metric note","text":"Item similarity signal","textPreview":"Item similarity signal","textChars":22,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":15,"id":"20","role":"metric panel: Popularity + trend","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":15,"id":"21","role":"metric accent: Popularity + trend","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":15,"id":"22","role":"metric value","text":"0.16 + 0.12","textPreview":"0.16 + 0.12","textChars":11,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":15,"id":"23","role":"metric label","text":"Popularity + trend","textPreview":"Popularity + trend","textChars":18,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":15,"id":"24","role":"metric note","text":"Global and recent demand","textPreview":"Global and recent demand","textChars":24,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":15,"id":"25","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":16,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":16,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":16,"id":"4","role":"header","text":"EVALUATION","textPreview":"EVALUATION","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":16,"id":"5","role":"header","text":"16 / 26","textPreview":"16 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":16,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":16,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":16,"id":"8","role":"title","text":"Offline Evaluation","textPreview":"Offline Evaluation","textChars":18,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":16,"id":"9","role":"subtitle","text":"The model recommends top-5 items for each test user and checks whether the held-out item appears.","textPreview":"The model recommends top-5 items for each test user and checks whether the held-out item appears.","textChars":97,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":16,"id":"10","role":"card panel: Precision@5","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":16,"id":"11","role":"card accent: Precision@5","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":16,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":16,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":16,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":16,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":16,"id":"16","role":"card label","text":"Precision@5","textPreview":"Precision@5","textChars":11,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":16,"id":"17","role":"card body: Precision@5","text":"Out of 5 recommended items,\nhow many were relevant.","textPreview":"Out of 5 recommended items, | how many were relevant.","textChars":51,"textLines":2,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":16,"id":"18","role":"card panel: Recall@5","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":16,"id":"19","role":"card accent: Recall@5","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":16,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":16,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":16,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":16,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":16,"id":"24","role":"card label","text":"Recall@5","textPreview":"Recall@5","textChars":8,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":16,"id":"25","role":"card body: Recall@5","text":"Out of the user's held-out\nrelevant items, how many\nwere recovered.","textPreview":"Out of the user's held-out | relevant items, how many | were recovered.","textChars":67,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":16,"id":"26","role":"card panel: Hit Rate@5","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":16,"id":"27","role":"card accent: Hit Rate@5","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":16,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":16,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":16,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":16,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":16,"id":"32","role":"card label","text":"Hit Rate@5","textPreview":"Hit Rate@5","textChars":10,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":16,"id":"33","role":"card body: Hit Rate@5","text":"Whether at least one\nheld-out item appeared in\nthe top-5.","textPreview":"Whether at least one | held-out item appeared in | the top-5.","textChars":57,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":16,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":17,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":17,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":17,"id":"4","role":"header","text":"RESULTS","textPreview":"RESULTS","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":17,"id":"5","role":"header","text":"17 / 26","textPreview":"17 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":17,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":17,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":17,"id":"8","role":"title","text":"Testing Results","textPreview":"Testing Results","textChars":15,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":17,"id":"9","role":"subtitle","text":"ALS performed best among the three trained models on top-5 offline evaluation.","textPreview":"ALS performed best among the three trained models on top-5 offline evaluation.","textChars":78,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":17,"id":"10","role":"card panel: ALS","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":17,"id":"11","role":"card accent: ALS","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":17,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":17,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":17,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":17,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":17,"id":"16","role":"card label","text":"ALS","textPreview":"ALS","textChars":3,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":17,"id":"17","role":"card body: ALS","text":"precision@5 = 0.02868,\nrecall@5 = 0.1434,\nhit_rate@5 = 0.1434.","textPreview":"precision@5 = 0.02868, | recall@5 = 0.1434, | hit_rate@5 = 0.1434.","textChars":62,"textLines":3,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":17,"id":"18","role":"card panel: BPR","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":17,"id":"19","role":"card accent: BPR","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":17,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":17,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":17,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":17,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":17,"id":"24","role":"card label","text":"BPR","textPreview":"BPR","textChars":3,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":17,"id":"25","role":"card body: BPR","text":"precision@5 was around\n0.001, much lower than ALS.","textPreview":"precision@5 was around | 0.001, much lower than ALS.","textChars":50,"textLines":2,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":17,"id":"26","role":"card panel: LMF","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":17,"id":"27","role":"card accent: LMF","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":17,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":17,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":17,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":17,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":17,"id":"32","role":"card label","text":"LMF","textPreview":"LMF","textChars":3,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":17,"id":"33","role":"card body: LMF","text":"precision@5 was around\n0.0036, better than BPR but\nbelow ALS.","textPreview":"precision@5 was around | 0.0036, better than BPR but | below ALS.","textChars":61,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":17,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":18,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":18,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":18,"id":"4","role":"header","text":"WHY METRICS ARE LOW","textPreview":"WHY METRICS ARE LOW","textChars":19,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":18,"id":"5","role":"header","text":"18 / 26","textPreview":"18 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":18,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":18,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":18,"id":"8","role":"title","text":"Why Precision Is Not Very High","textPreview":"Why Precision Is Not Very High","textChars":30,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":18,"id":"9","role":"subtitle","text":"The result reflects the real difficulty of sparse top-K recommendation, not a clean supervised classification task.","textPreview":"The result reflects the real difficulty of sparse top-K recommendation, not a clean supervised classification task.","textChars":115,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":18,"id":"10","role":"metric panel: Training users","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":18,"id":"11","role":"metric accent: Training users","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":18,"id":"12","role":"metric value","text":"140,900","textPreview":"140,900","textChars":7,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":18,"id":"13","role":"metric label","text":"Training users","textPreview":"Training users","textChars":14,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":18,"id":"14","role":"metric note","text":"Many users have little history","textPreview":"Many users have little history","textChars":30,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":18,"id":"15","role":"metric panel: Training items","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":18,"id":"16","role":"metric accent: Training items","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":18,"id":"17","role":"metric value","text":"35,682","textPreview":"35,682","textChars":6,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":18,"id":"18","role":"metric label","text":"Training items","textPreview":"Training items","textChars":14,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":18,"id":"19","role":"metric note","text":"Large candidate catalog","textPreview":"Large candidate catalog","textChars":23,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":18,"id":"20","role":"metric panel: Matrix density","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":18,"id":"21","role":"metric accent: Matrix density","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":18,"id":"22","role":"metric value","text":"0.0044%","textPreview":"0.0044%","textChars":7,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":18,"id":"23","role":"metric label","text":"Matrix density","textPreview":"Matrix density","textChars":14,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":18,"id":"24","role":"metric note","text":"Extremely sparse signal","textPreview":"Extremely sparse signal","textChars":23,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":18,"id":"25","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":19,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":19,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":19,"id":"4","role":"header","text":"MLFLOW","textPreview":"MLFLOW","textChars":6,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":19,"id":"5","role":"header","text":"19 / 26","textPreview":"19 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":19,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":19,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":19,"id":"8","role":"title","text":"MLflow Experiment Tracking","textPreview":"MLflow Experiment Tracking","textChars":26,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":19,"id":"9","role":"subtitle","text":"MLflow records model parameters, metrics, tags, and comparison runs for training and evaluation.","textPreview":"MLflow records model parameters, metrics, tags, and comparison runs for training and evaluation.","textChars":96,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":19,"id":"10","role":"card panel: Runs","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":19,"id":"11","role":"card accent: Runs","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":19,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":19,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":19,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":19,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":19,"id":"16","role":"card label","text":"Runs","textPreview":"Runs","textChars":4,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":19,"id":"17","role":"card body: Runs","text":"als_hybrid_v1,\nbpr_hybrid_v1,\nlmf_hybrid_v1,\noffline_evaluation,\nmodel_comparison.","textPreview":"als_hybrid_v1, | bpr_hybrid_v1, | lmf_hybrid_v1, | offline_evaluation, | model_comparison.","textChars":82,"textLines":5,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":19,"id":"18","role":"card panel: Compare","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":19,"id":"19","role":"card accent: Compare","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":19,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":19,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":19,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":19,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":19,"id":"24","role":"card label","text":"Compare","textPreview":"Compare","textChars":7,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":19,"id":"25","role":"card body: Compare","text":"MLflow compare view helps\ninspect metrics and\nparameters side by side.","textPreview":"MLflow compare view helps | inspect metrics and | parameters side by side.","textChars":70,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":19,"id":"26","role":"card panel: Insert Screenshot","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":19,"id":"27","role":"card accent: Insert Screenshot","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":19,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":19,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":19,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":19,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":19,"id":"32","role":"card label","text":"Insert Screenshot","textPreview":"Insert Screenshot","textChars":17,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":19,"id":"33","role":"card body: Insert Screenshot","text":"Add MLflow run table,\ncomparison view, or metric\ndetails here.","textPreview":"Add MLflow run table, | comparison view, or metric | details here.","textChars":62,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":19,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":20,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":20,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":20,"id":"4","role":"header","text":"DVC","textPreview":"DVC","textChars":3,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":20,"id":"5","role":"header","text":"20 / 26","textPreview":"20 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":20,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":20,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":20,"id":"8","role":"title","text":"DVC Data and Pipeline Versioning","textPreview":"DVC Data and Pipeline Versioning","textChars":32,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":20,"id":"9","role":"subtitle","text":"DVC makes the data and model workflow reproducible without committing large CSV/model files to Git.","textPreview":"DVC makes the data and model workflow reproducible without committing large CSV/model files to Git.","textChars":99,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":20,"id":"10","role":"card panel: Tracked Data","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":20,"id":"11","role":"card accent: Tracked Data","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":20,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":20,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":20,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":20,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":20,"id":"16","role":"card label","text":"Tracked Data","textPreview":"Tracked Data","textChars":12,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":20,"id":"17","role":"card body: Tracked Data","text":"data/raw/kaggle_events.csv\nis referenced through a .dvc\nfile.","textPreview":"data/raw/kaggle_events.csv | is referenced through a .dvc | file.","textChars":61,"textLines":3,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":20,"id":"18","role":"card panel: Pipeline","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":20,"id":"19","role":"card accent: Pipeline","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":20,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":20,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":20,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":20,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":20,"id":"24","role":"card label","text":"Pipeline","textPreview":"Pipeline","textChars":8,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":20,"id":"25","role":"card body: Pipeline","text":"dvc.yaml defines split,\nfeatures, train, evaluate,\nand compare stages.","textPreview":"dvc.yaml defines split, | features, train, evaluate, | and compare stages.","textChars":70,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":20,"id":"26","role":"card panel: Repro","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":20,"id":"27","role":"card accent: Repro","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":20,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":20,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":20,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":20,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":20,"id":"32","role":"card label","text":"Repro","textPreview":"Repro","textChars":5,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":20,"id":"33","role":"card body: Repro","text":"dvc repro reruns only stages\naffected by changed inputs\nor code.","textPreview":"dvc repro reruns only stages | affected by changed inputs | or code.","textChars":64,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":20,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":21,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":21,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":21,"id":"4","role":"header","text":"KAFKA","textPreview":"KAFKA","textChars":5,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":21,"id":"5","role":"header","text":"21 / 26","textPreview":"21 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":21,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":21,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":21,"id":"8","role":"title","text":"Kafka Streaming Flow","textPreview":"Kafka Streaming Flow","textChars":20,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":21,"id":"9","role":"subtitle","text":"Kafka decouples event producers from consumers so live events can move through the system reliably.","textPreview":"Kafka decouples event producers from consumers so live events can move through the system reliably.","textChars":99,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":21,"id":"10","role":"metric panel: Coordinates Kafka broker state","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":21,"id":"11","role":"metric accent: Coordinates Kafka broker state","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":21,"id":"12","role":"metric value","text":"Zookeeper","textPreview":"Zookeeper","textChars":9,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":21,"id":"13","role":"metric label","text":"Coordinates Kafka broker state","textPreview":"Coordinates Kafka broker state","textChars":30,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":21,"id":"14","role":"metric note","text":"Used by this Kafka image","textPreview":"Used by this Kafka image","textChars":24,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":21,"id":"15","role":"metric panel: Stores topic messages","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":21,"id":"16","role":"metric accent: Stores topic messages","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":21,"id":"17","role":"metric value","text":"Kafka Broker","textPreview":"Kafka Broker","textChars":12,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":21,"id":"18","role":"metric label","text":"Stores topic messages","textPreview":"Stores topic messages","textChars":21,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":21,"id":"19","role":"metric note","text":"Topic: user-events","textPreview":"Topic: user-events","textChars":18,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":21,"id":"20","role":"metric panel: Reads and applies events","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":21,"id":"21","role":"metric accent: Reads and applies events","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":21,"id":"22","role":"metric value","text":"Consumer","textPreview":"Consumer","textChars":8,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":21,"id":"23","role":"metric label","text":"Reads and applies events","textPreview":"Reads and applies events","textChars":24,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":21,"id":"24","role":"metric note","text":"Updates live interaction state","textPreview":"Updates live interaction state","textChars":30,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":21,"id":"25","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":22,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":22,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":22,"id":"4","role":"header","text":"FASTAPI","textPreview":"FASTAPI","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":22,"id":"5","role":"header","text":"22 / 26","textPreview":"22 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":22,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":22,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":22,"id":"8","role":"title","text":"FastAPI Serving Layer","textPreview":"FastAPI Serving Layer","textChars":21,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":22,"id":"9","role":"subtitle","text":"FastAPI exposes model recommendations, trending items, manual event ingestion, health, dashboard, and metrics endpoints.","textPreview":"FastAPI exposes model recommendations, trending items, manual event ingestion, health, dashboard, and metrics endpoints.","textChars":120,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":22,"id":"10","role":"card panel: /recommend/{user}","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":22,"id":"11","role":"card accent: /recommend/{user}","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":22,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":22,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":22,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":22,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":22,"id":"16","role":"card label","text":"/recommend/{user}","textPreview":"/recommend/{user}","textChars":17,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":22,"id":"17","role":"card body: /recommend/{user}","text":"Loads the trained model and\nreturns top-N\nrecommendations.","textPreview":"Loads the trained model and | returns top-N | recommendations.","textChars":58,"textLines":3,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":22,"id":"18","role":"card panel: /event","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":22,"id":"19","role":"card accent: /event","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":22,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":22,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":22,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":22,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":22,"id":"24","role":"card label","text":"/event","textPreview":"/event","textChars":6,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":22,"id":"25","role":"card body: /event","text":"Accepts manual user_id,\nitem_id, event and sends it\nto Kafka when available.","textPreview":"Accepts manual user_id, | item_id, event and sends it | to Kafka when available.","textChars":76,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":22,"id":"26","role":"card panel: /metrics","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":22,"id":"27","role":"card accent: /metrics","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":22,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":22,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":22,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":22,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":22,"id":"32","role":"card label","text":"/metrics","textPreview":"/metrics","textChars":8,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":22,"id":"33","role":"card body: /metrics","text":"Exposes Prometheus metrics\nfor API, model, and drift\nmonitoring.","textPreview":"Exposes Prometheus metrics | for API, model, and drift | monitoring.","textChars":64,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":22,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":23,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":23,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":23,"id":"4","role":"header","text":"MONITORING","textPreview":"MONITORING","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":23,"id":"5","role":"header","text":"23 / 26","textPreview":"23 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":23,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":23,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":23,"id":"8","role":"title","text":"Prometheus and Drift Monitoring","textPreview":"Prometheus and Drift Monitoring","textChars":31,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":23,"id":"9","role":"subtitle","text":"Prometheus scrapes FastAPI metrics; drift scripts compute signals and expose them as gauges.","textPreview":"Prometheus scrapes FastAPI metrics; drift scripts compute signals and expose them as gauges.","textChars":92,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":23,"id":"10","role":"card panel: Data Drift","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":23,"id":"11","role":"card accent: Data Drift","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":23,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":23,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":23,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":23,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":23,"id":"16","role":"card label","text":"Data Drift","textPreview":"Data Drift","textChars":10,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":23,"id":"17","role":"card body: Data Drift","text":"KS-style distribution\ncomparison between training\ndata and incoming/production\ndata.","textPreview":"KS-style distribution | comparison between training | data and incoming/production | data.","textChars":84,"textLines":4,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":23,"id":"18","role":"card panel: Model Drift","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":23,"id":"19","role":"card accent: Model Drift","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":23,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":23,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":23,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":23,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":23,"id":"24","role":"card label","text":"Model Drift","textPreview":"Model Drift","textChars":11,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":23,"id":"25","role":"card body: Model Drift","text":"Tracks whether model\nperformance falls below the\nexpected baseline.","textPreview":"Tracks whether model | performance falls below the | expected baseline.","textChars":67,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":23,"id":"26","role":"card panel: Metrics","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":23,"id":"27","role":"card accent: Metrics","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":23,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":23,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":23,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":23,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":23,"id":"32","role":"card label","text":"Metrics","textPreview":"Metrics","textChars":7,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":23,"id":"33","role":"card body: Metrics","text":"data_drift_detected,\ndrifted_features_count,\nmodel_drift_detected,\nprecision_at_5.","textPreview":"data_drift_detected, | drifted_features_count, | model_drift_detected, | precision_at_5.","textChars":82,"textLines":4,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":23,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":24,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":24,"id":"3","role":"metrics contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":24,"id":"4","role":"header","text":"PROMETHEUS GRAPHS","textPreview":"PROMETHEUS GRAPHS","textChars":17,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":24,"id":"5","role":"header","text":"24 / 26","textPreview":"24 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":24,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":24,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":24,"id":"8","role":"title","text":"Metrics to Show in Prometheus","textPreview":"Metrics to Show in Prometheus","textChars":29,"textLines":1,"bbox":[64,86,700,142]}
+{"kind":"textbox","slide":24,"id":"9","role":"subtitle","text":"Use these queries during the demo or add screenshots of their graphs.","textPreview":"Use these queries during the demo or add screenshots of their graphs.","textChars":69,"textLines":1,"bbox":[66,234,700,70]}
+{"kind":"shape","slide":24,"id":"10","role":"metric panel: Model quality metric","shapeType":"roundRect","bbox":[92,404,330,174]}
+{"kind":"shape","slide":24,"id":"11","role":"metric accent: Model quality metric","shapeType":"rect","bbox":[92,404,330,7]}
+{"kind":"textbox","slide":24,"id":"12","role":"metric value","text":"precision_at_5","textPreview":"precision_at_5","textChars":14,"textLines":1,"bbox":[114,428,286,54]}
+{"kind":"textbox","slide":24,"id":"13","role":"metric label","text":"Model quality metric","textPreview":"Model quality metric","textChars":20,"textLines":1,"bbox":[116,486,282,38]}
+{"kind":"textbox","slide":24,"id":"14","role":"metric note","text":"Offline evaluation exposed to monitoring","textPreview":"Offline evaluation exposed to monitoring","textChars":40,"textLines":1,"bbox":[116,536,282,22]}
+{"kind":"shape","slide":24,"id":"15","role":"metric panel: 0 or 1 drift flag","shapeType":"roundRect","bbox":[462,404,330,174]}
+{"kind":"shape","slide":24,"id":"16","role":"metric accent: 0 or 1 drift flag","shapeType":"rect","bbox":[462,404,330,7]}
+{"kind":"textbox","slide":24,"id":"17","role":"metric value","text":"data_drift_detected","textPreview":"data_drift_detected","textChars":19,"textLines":1,"bbox":[484,428,286,54]}
+{"kind":"textbox","slide":24,"id":"18","role":"metric label","text":"0 or 1 drift flag","textPreview":"0 or 1 drift flag","textChars":17,"textLines":1,"bbox":[486,486,282,38]}
+{"kind":"textbox","slide":24,"id":"19","role":"metric note","text":"1 means drift detected","textPreview":"1 means drift detected","textChars":22,"textLines":1,"bbox":[486,536,282,22]}
+{"kind":"shape","slide":24,"id":"20","role":"metric panel: Number of drifted features","shapeType":"roundRect","bbox":[832,404,330,174]}
+{"kind":"shape","slide":24,"id":"21","role":"metric accent: Number of drifted features","shapeType":"rect","bbox":[832,404,330,7]}
+{"kind":"textbox","slide":24,"id":"22","role":"metric value","text":"drifted_features_count","textPreview":"drifted_features_count","textChars":22,"textLines":1,"bbox":[854,428,286,54]}
+{"kind":"textbox","slide":24,"id":"23","role":"metric label","text":"Number of drifted features","textPreview":"Number of drifted features","textChars":26,"textLines":1,"bbox":[856,486,282,38]}
+{"kind":"textbox","slide":24,"id":"24","role":"metric note","text":"Higher means more distribution change","textPreview":"Higher means more distribution change","textChars":37,"textLines":1,"bbox":[856,536,282,22]}
+{"kind":"textbox","slide":24,"id":"25","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":25,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":25,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":25,"id":"4","role":"header","text":"CI/CD","textPreview":"CI/CD","textChars":5,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":25,"id":"5","role":"header","text":"25 / 26","textPreview":"25 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":25,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":25,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":25,"id":"8","role":"title","text":"GitHub Actions CI/CD","textPreview":"GitHub Actions CI/CD","textChars":20,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":25,"id":"9","role":"subtitle","text":"The workflow checks code, reproduces the DVC evaluation path, builds Docker, and publishes the image.","textPreview":"The workflow checks code, reproduces the DVC evaluation path, builds Docker, and publishes the image.","textChars":101,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":25,"id":"10","role":"card panel: Python Checks","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":25,"id":"11","role":"card accent: Python Checks","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":25,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":25,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":25,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":25,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":25,"id":"16","role":"card label","text":"Python Checks","textPreview":"Python Checks","textChars":13,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":25,"id":"17","role":"card body: Python Checks","text":"Install dependencies,\ncompile src, and run tests\nif tests exist.","textPreview":"Install dependencies, | compile src, and run tests | if tests exist.","textChars":64,"textLines":3,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":25,"id":"18","role":"card panel: DVC Pipeline","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":25,"id":"19","role":"card accent: DVC Pipeline","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":25,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":25,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":25,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":25,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":25,"id":"24","role":"card label","text":"DVC Pipeline","textPreview":"DVC Pipeline","textChars":12,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":25,"id":"25","role":"card body: DVC Pipeline","text":"Pull/download data and run\ndvc repro evaluate_model.","textPreview":"Pull/download data and run | dvc repro evaluate_model.","textChars":52,"textLines":2,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":25,"id":"26","role":"card panel: Docker + GHCR","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":25,"id":"27","role":"card accent: Docker + GHCR","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":25,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":25,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":25,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":25,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":25,"id":"32","role":"card label","text":"Docker + GHCR","textPreview":"Docker + GHCR","textChars":13,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":25,"id":"33","role":"card body: Docker + GHCR","text":"Build API image and publish\non push to main/master.","textPreview":"Build API image and publish | on push to main/master.","textChars":51,"textLines":2,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":25,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}
+{"kind":"image","slide":26,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":26,"id":"3","role":"content contrast overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":26,"id":"4","role":"header","text":"DEMO","textPreview":"DEMO","textChars":4,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":26,"id":"5","role":"header","text":"26 / 26","textPreview":"26 / 26","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":26,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":26,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":26,"id":"8","role":"title","text":"Project Dashboard and Demo Flow","textPreview":"Project Dashboard and Demo Flow","textChars":31,"textLines":1,"bbox":[64,86,760,142]}
+{"kind":"textbox","slide":26,"id":"9","role":"subtitle","text":"The dashboard brings results, health, trending items, and recommendation examples into one place.","textPreview":"The dashboard brings results, health, trending items, and recommendation examples into one place.","textChars":97,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":26,"id":"10","role":"card panel: Dashboard","shapeType":"roundRect","bbox":[84,386,355.3333333333333,230]}
+{"kind":"shape","slide":26,"id":"11","role":"card accent: Dashboard","shapeType":"rect","bbox":[84,386,8,230]}
+{"kind":"shape","slide":26,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[106,410,54,54]}
+{"kind":"shape","slide":26,"id":"13","role":"icon glyph","shapeType":"rect","bbox":[122,439,6,12]}
+{"kind":"shape","slide":26,"id":"14","role":"icon glyph","shapeType":"rect","bbox":[131,431,6,20]}
+{"kind":"shape","slide":26,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[140,424,6,27]}
+{"kind":"textbox","slide":26,"id":"16","role":"card label","text":"Dashboard","textPreview":"Dashboard","textChars":9,"textLines":1,"bbox":[172,408,247.33333333333331,28]}
+{"kind":"textbox","slide":26,"id":"17","role":"card body: Dashboard","text":"Open /dashboard and show\nmodel results, API health,\ntrending items, and\nrecommendations.","textPreview":"Open /dashboard and show | model results, API health, | trending items, and | recommendations.","textChars":88,"textLines":4,"bbox":[108,472,307.3333333333333,122]}
+{"kind":"shape","slide":26,"id":"18","role":"card panel: Demo Input","shapeType":"roundRect","bbox":[463.3333333333333,386,355.3333333333333,230]}
+{"kind":"shape","slide":26,"id":"19","role":"card accent: Demo Input","shapeType":"rect","bbox":[463.3333333333333,386,8,230]}
+{"kind":"shape","slide":26,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[485.3333333333333,410,54,54]}
+{"kind":"shape","slide":26,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[498.3333333333333,428,10,10]}
+{"kind":"shape","slide":26,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[516.3333333333333,437,10,10]}
+{"kind":"shape","slide":26,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[507.3333333333333,435,19,3]}
+{"kind":"textbox","slide":26,"id":"24","role":"card label","text":"Demo Input","textPreview":"Demo Input","textChars":10,"textLines":1,"bbox":[551.3333333333333,408,247.33333333333331,28]}
+{"kind":"textbox","slide":26,"id":"25","role":"card body: Demo Input","text":"Send a manual /event request\nfrom Swagger UI and watch\nAPI/Kafka/metrics behavior.","textPreview":"Send a manual /event request | from Swagger UI and watch | API/Kafka/metrics behavior.","textChars":82,"textLines":3,"bbox":[487.3333333333333,472,307.3333333333333,122]}
+{"kind":"shape","slide":26,"id":"26","role":"card panel: Closing","shapeType":"roundRect","bbox":[842.6666666666666,386,355.3333333333333,230]}
+{"kind":"shape","slide":26,"id":"27","role":"card accent: Closing","shapeType":"rect","bbox":[842.6666666666666,386,8,230]}
+{"kind":"shape","slide":26,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[864.6666666666666,410,54,54]}
+{"kind":"shape","slide":26,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[877.6666666666666,425,26,13]}
+{"kind":"shape","slide":26,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[882.6666666666666,434,26,13]}
+{"kind":"shape","slide":26,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[887.6666666666666,443,20,10]}
+{"kind":"textbox","slide":26,"id":"32","role":"card label","text":"Closing","textPreview":"Closing","textChars":7,"textLines":1,"bbox":[930.6666666666666,408,247.33333333333331,28]}
+{"kind":"textbox","slide":26,"id":"33","role":"card body: Closing","text":"This project shows an\nend-to-end MLOps loop, not\nonly a notebook model.","textPreview":"This project shows an | end-to-end MLOps loop, not | only a notebook model.","textChars":71,"textLines":3,"bbox":[866.6666666666666,472,307.3333333333333,122]}
+{"kind":"textbox","slide":26,"id":"34","role":"caption","text":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textPreview":"Ecommerce Recommender MLOps: Kaggle data, DVC, MLflow, Kafka, FastAPI, Prometheus, and GitHub Actions.","textChars":102,"textLines":1,"bbox":[64,674,980,22]}

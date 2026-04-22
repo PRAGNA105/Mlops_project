@@ -52,7 +52,9 @@ def run_drift_check(
     )
 
     p_at_5 = precision_at_k(artifacts, test_df, k=5)
+    model_drift_score = max(0.0, (threshold - p_at_5) / threshold) if threshold else 0.0
     print(f"Precision@5 = {p_at_5:.4f}")
+    print(f"Model drift score = {model_drift_score:.4f}")
 
     with mlflow.start_run(run_name="drift_check"):
         log_common_tags(stage="model_drift_check")
@@ -67,6 +69,7 @@ def run_drift_check(
         mlflow.log_param("precision_threshold", threshold)
         mlflow.log_metric("precision_at_5", p_at_5)
         mlflow.log_metric("model_drift_detected", int(p_at_5 < threshold))
+        mlflow.log_metric("model_drift_score", model_drift_score)
 
     if p_at_5 < threshold:
         print("ALERT: model drift detected - retraining needed!")
@@ -74,6 +77,7 @@ def run_drift_check(
     update_monitoring_metrics(
         precision_at_5=round(float(p_at_5), 6),
         model_drift_detected=int(p_at_5 < threshold),
+        model_drift_score=round(float(model_drift_score), 6),
     )
 
     return p_at_5
