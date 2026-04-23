@@ -15,7 +15,7 @@ models/
 !models/.gitkeep
 data/processed/
 !data/processed/.gitkeep
-data/production/
+data/production/live_production.csv
 data/raw/kaggle/
 data/versioned/
 !data/versioned/.gitkeep

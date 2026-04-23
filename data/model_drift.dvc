@@ -1,0 +1,6 @@
+outs:
+- md5: f7249bd5c7c10376b18ef841cc9e7337.dir
+  size: 4452
+  nfiles: 3
+  hash: md5
+  path: model_drift

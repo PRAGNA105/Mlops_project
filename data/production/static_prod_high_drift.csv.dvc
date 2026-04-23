@@ -1,0 +1,5 @@
+outs:
+- md5: d4c7462e76d328561897f00d6fdfe128
+  size: 504
+  hash: md5
+  path: static_prod_high_drift.csv
